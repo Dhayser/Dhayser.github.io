@@ -71,45 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-王得发！文件上传的原理及流程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/07/%E7%8E%8B%E5%BE%97%E5%8F%91%EF%BC%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2022-11-07T10:24:42.000Z" itemprop="datePublished">2022-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/%E7%8E%8B%E5%BE%97%E5%8F%91%EF%BC%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/">王得发！什么是文件上传他原理上是什么</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>TODO</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/07/%E7%8E%8B%E5%BE%97%E5%8F%91%EF%BC%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/" data-id="cla6n89zt0002l8hf7rl41cbc" data-title="王得发！什么是文件上传他原理上是什么" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-fastjson反序列化漏洞检测及利用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/" class="article-date">
@@ -132,7 +93,8 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="版本判断"><a href="#版本判断" class="headerlink" title="版本判断"></a>版本判断</h2><h4 id="伪造请求"><a href="#伪造请求" class="headerlink" title="伪造请求"></a>伪造请求</h4><p>请求数据包:</p>
+        <p><a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson/wiki">Fastjson</a>是阿里巴巴的第三方库,他可以将Java对象转换为Json类型,当然他也可以将Json类型转换为Java对象,进行相互转换.猜测就是转换过程的反序列化出现了问题.</p>
+<h2 id="版本判断"><a href="#版本判断" class="headerlink" title="版本判断"></a>版本判断</h2><h4 id="伪造请求"><a href="#伪造请求" class="headerlink" title="伪造请求"></a>伪造请求</h4><p>请求数据包:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">POST /local/web/bdc/content/query HTTP/1.1</span><br><span class="line">Host: 8.8.8.8</span><br><span class="line">Cookie: XSRF-TOKEN=f4d99786-6de2-41fc-9063-37608f725a40; SESSION=YmM0YzE3NTktM2MyOC00MWNiLTljOGEtMDEyODFhYjhlYjhm; </span><br><span class="line">Sec-Ch-Ua-Platform: &quot;macOS&quot;</span><br><span class="line">Origin: https://8.8.8.8</span><br><span class="line">Referer: https://8.8.8.8/web/tender/</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: en-US,en;q=0.9</span><br><span class="line">Connection: close</span><br><span class="line"></span><br><span class="line">[&quot;test&quot;:1] </span><br></pre></td></tr></table></figure>
 <p>响应数据包:<br>得知fastjson-version 1.2.83</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 400 </span><br><span class="line">Date: Mon, 07 Nov 2022 07:10:42 GMT</span><br><span class="line">Content-Type: application/json;charset=UTF-8</span><br><span class="line">Connection: close</span><br><span class="line">X-XSS-Protection: 1; mode=block</span><br><span class="line">Cache-Control: no-cache, no-store, max-age=0, must-revalidate</span><br><span class="line">Pragma: no-cache</span><br><span class="line">Content-Length: 321</span><br><span class="line"></span><br><span class="line">&#123;&quot;timestamp&quot;:1667805042729,&quot;status&quot;:400,&quot;error&quot;:&quot;Bad Request&quot;,&quot;message&quot;:&quot;JSON parse error: syntax error, expect &#123;, actual [, pos 0, fastjson-version 1.2.83; nested exception is com.alibaba.fastjson.JSONException: syntax error, expect &#123;, actual [, pos 0, fastjson-version 1.2.83&quot;,&quot;path&quot;:&quot;/local/web/bdc/content/query&quot;&#125;</span><br></pre></td></tr></table></figure>
@@ -142,7 +104,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla6n89zt0003l8hfgwgs1f75" data-title="fastjson反序列化漏洞检测及利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla7k3bit0001lzhf0nv8adzz" data-title="fastjson反序列化漏洞检测及利用" class="article-share-link">Share</a>
       
       
       
@@ -190,46 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cla6n89zq0001l8hfc3rp9oiw" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Shiro-550原理分析及利用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2022-11-06T06:52:59.000Z" itemprop="datePublished">2022-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/">Shiro-550原理分析及利用</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Shiro反序列化使用默认key漏洞,共有Shiro-550、Shiro-721两个可利用版本,该文章用于Shiro-550分析,学习该文章前你可以查看<a target="_blank" rel="noopener" href="https://issues.apache.org/jira/browse/SHIRO-550">Shiro550官方原文</a>由apache发布.</p>
-<h2 id="分析要点"><a href="#分析要点" class="headerlink" title="分析要点"></a>分析要点</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ Todo</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla6n89zn0000l8hf9v5ofxta" data-title="Shiro-550原理分析及利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cla7k3biq0000lzhf8s3g7kha" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
@@ -272,19 +195,11 @@
       <ul>
         
           <li>
-            <a href="/2022/11/07/%E7%8E%8B%E5%BE%97%E5%8F%91%EF%BC%81%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%9A%84%E5%8E%9F%E7%90%86%E5%8F%8A%E6%B5%81%E7%A8%8B/">王得发！什么是文件上传他原理上是什么</a>
-          </li>
-        
-          <li>
             <a href="/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/">fastjson反序列化漏洞检测及利用</a>
           </li>
         
           <li>
             <a href="/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/">curl工具连接webshell调试</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/06/Shiro-550%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8/">Shiro-550原理分析及利用</a>
           </li>
         
       </ul>
