@@ -71,6 +71,45 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-非授权访问" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-11-11T05:49:32.000Z" itemprop="datePublished">2022-11-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/">非授权访问</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h4 id="接口查询接口查看"><a href="#接口查询接口查看" class="headerlink" title="接口查询接口查看"></a>接口查询接口查看</h4><p><a target="_blank" rel="noopener" href="http://0.0.0.0/ehr/api/personalArchiveInfo/listPersonalArchiveInfo?startTime=&amp;endTime=&amp;pageNum=1&amp;pageSize=10">http://0.0.0.0/ehr/api/personalArchiveInfo/listPersonalArchiveInfo?startTime=&amp;endTime=&amp;pageNum=1&amp;pageSize=10</a></p>
+<h4 id="使用curl工具进行调试不添加session等信息"><a href="#使用curl工具进行调试不添加session等信息" class="headerlink" title="使用curl工具进行调试不添加session等信息"></a>使用curl工具进行调试不添加session等信息</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clagvr6rc0003lyhf3ye70qjk" data-title="非授权访问" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-设备缺省口令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" class="article-date">
@@ -100,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="cla9fg78w0002qxhfagib45yk" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clagvr6rb0002lyhf1qihhya3" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
@@ -134,12 +173,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson/wiki">Fastjson</a>是阿里巴巴的第三方库,他可以将Java对象转换为Json类型,当然他也可以将Json类型转换为Java对象,进行相互转换.猜测就是转换过程的反序列化出现了问题.</p>
+        <h2 id="过程使用术语"><a href="#过程使用术语" class="headerlink" title="过程使用术语"></a>过程使用术语</h2><p>1、getter: java实例化出来的方法<br>2、setter: java实例化出来的方法<br><a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson/wiki">Fastjson</a>是阿里巴巴的第三方库,他可以将Java对象转换为Json类型,当然他也可以将Json类型转换为Java对象,进行相互转换.猜测就是转换过程的反序列化出现了问题.</p>
 <h2 id="开始-了解Fastjson"><a href="#开始-了解Fastjson" class="headerlink" title="开始:了解Fastjson"></a>开始:了解Fastjson</h2><h4 id="编程实践练习了解"><a href="#编程实践练习了解" class="headerlink" title="编程实践练习了解"></a>编程实践练习了解</h4><p>开始前你需要配置第三方依赖,mave项目依赖程序会查找pom.xml中的内容进行加载.<br>pom.xml文件:</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.47<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.source</span>&gt;</span>8<span class="tag">&lt;/<span class="name">maven.compiler.source</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">maven.compiler.target</span>&gt;</span>8<span class="tag">&lt;/<span class="name">maven.compiler.target</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>实际上你会发现当导入存在漏洞的版本java时候,idea会提示你存在漏洞,建议升级到某版本.  </p>
 <hr>
-<p>此部分为运行main函数(建议直接手敲一遍,这块不要太看重结果,过程更重要),如果看不太懂,可以先查看此<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-basic-syntax.html">教程</a>,如果还是看不懂可以把连接上所有教程看一遍.<br>User.java文件:</p>
+<h4 id="为了了解Fastjson原理及用法"><a href="#为了了解Fastjson原理及用法" class="headerlink" title="为了了解Fastjson原理及用法"></a>为了了解Fastjson原理及用法</h4><p>toJSON调用get方法<br>parse会调用set方法<br>参数内Object.class干什么用的<br>把类的类型进行反序列化后,指定类型便不可用,会按照输入的类型进行执行反序列化,当@type的类型为恶意构造好的累,那么配合getter&#x2F;setter中有危害的操作时,就会自动执行其中(getter&#x2F;setter)的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.serializer.SerializerFeature;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">user</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">user</span>(<span class="string">&quot;张三&quot;</span>, <span class="number">11</span>, <span class="string">&quot;睡觉&quot;</span>);   <span class="comment">// 输出为类</span></span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> JSON.toJSONString(user);        <span class="comment">// 将类转换为字符串，与get方法同时进行</span></span><br><span class="line"><span class="comment">//        String s2 = JSON.toJSONString(user, SerializerFeature.WriteClassName);</span></span><br><span class="line">        System.out.println(s1);</span><br><span class="line"><span class="comment">//        System.out.println(s2);</span></span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------------------------&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">parse</span> <span class="operator">=</span> JSON.parse(s1);              <span class="comment">// 字符串转换为类 默认JSONObject类型</span></span><br><span class="line">        System.out.println(parse);</span><br><span class="line">        System.out.println(parse.getClass().getName());</span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------------------------&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">parse1</span> <span class="operator">=</span> JSON.parseObject(s1);</span><br><span class="line">        System.out.println(parse1);</span><br><span class="line">        System.out.println(parse1.getClass().getName());</span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------------------------&quot;</span>);</span><br><span class="line">        <span class="type">Object</span> <span class="variable">parse2</span> <span class="operator">=</span> JSON.parseObject(s1, Object.class);</span><br><span class="line">        System.out.println(parse2);</span><br><span class="line">        System.out.println(parse2.getClass().getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="记录-当"><a href="#记录-当" class="headerlink" title="记录:当"></a>记录:当</h4><hr>
+<p>此部分为运行main函数(建议直接手敲一遍,这块不要太看重结果,过程更重要),如果看不太懂,可以先查看此<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-basic-syntax.html">教程</a>,如果还是看不懂可以把连接上所有教程看一遍.<br>User.java文件:<br>可能你不懂的知识点(java强类型语言)<br>1、java中void代表该方法不需要返回值(没有return)</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.parser.ParserConfig;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.serializer.SerializerFeature;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name2)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name2 = name2;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="comment">// 实例化过程</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">name2</span> <span class="operator">=</span> <span class="string">&quot;foo&quot;</span>;</span><br><span class="line">        <span class="type">User</span> <span class="variable">u1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">        u1.setName(name2);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 实例化后经fastjson转换</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">jsonString</span> <span class="operator">=</span> JSON.toJSONString(u1);</span><br><span class="line">        ParserConfig.getGlobalInstance().setAutoTypeSupport(<span class="literal">true</span>);</span><br><span class="line">        JSON.toJSONString(u1, SerializerFeature.WriteClassName);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">&quot;u1的类型：&quot;</span> + u1.getClass());      <span class="comment">// 将经过实例化并赋值的类型</span></span><br><span class="line">        System.out.println(<span class="string">&quot;u1的内容：&quot;</span> + u1);                 <span class="comment">// 将经过实例化并赋值的内容</span></span><br><span class="line">        System.out.println(<span class="string">&quot;u1_fastjson的类型：&quot;</span> + jsonString.getClass());          <span class="comment">// 实例化经过fastjson转换后类型</span></span><br><span class="line">        System.out.println(<span class="string">&quot;u1_fastjson的内容：&quot;</span> +jsonString);                     <span class="comment">// 实例化经过fastjson转换后内容</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">u1的类型：class User</span><br><span class="line">u1的内容：User@7ab2bfe1</span><br><span class="line">u1_fastjson的类型：class java.lang.String</span><br><span class="line">u1_fastjson的内容：&#123;&quot;name&quot;:&quot;foo&quot;&#125;</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure>
@@ -153,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="cla9fg78v0001qxhfd718hath" data-title="fastjson反序列化漏洞检测及利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/07/fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%E5%8F%8A%E5%88%A9%E7%94%A8/" data-id="clagvr6ra0001lyhf6vmpf2al" data-title="fastjson反序列化漏洞检测及利用" class="article-share-link">Share</a>
       
       
       
@@ -201,7 +243,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cla9fg78t0000qxhf5s9raer8" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clagvr6r80000lyhfaz651bla" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
@@ -242,6 +284,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/">非授权访问</a>
+          </li>
         
           <li>
             <a href="/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/">设备缺省口令</a>
