@@ -13,12 +13,12 @@
 <meta property="og:site_name" content="Dhayser&#39;s space">
 <meta property="og:description" content="Fastjson是阿里巴巴的第三方库,他可以将Java对象转换为Json类型,当然他也可以将Json类型转换为Java对象,进行相互转换.猜测就是转换过程的反序列化出现了问题. 学习心得: 不知道的就多试一下,多敲几个代码累不死原由关于fastjson的文章网上有很多,漏洞环境搭建也有一键docker启动的,但是实际想了解这个漏洞的原理的时候并不能很好的将这个漏洞清晰的描述出来,记录学习过程并给网">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dhayser.github.io/.io//1.png">
+<meta property="og:image" content="https://dhayser.github.io/.io//_posts/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/1.png">
 <meta property="article:published_time" content="2022-11-15T07:30:00.000Z">
-<meta property="article:modified_time" content="2022-11-17T02:05:08.856Z">
+<meta property="article:modified_time" content="2022-11-17T02:05:55.680Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dhayser.github.io/.io//1.png">
+<meta name="twitter:image" content="https://dhayser.github.io/.io//_posts/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Dhayser's space" type="application/atom+xml">
   
@@ -103,7 +103,7 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">25</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <h2 id="不理解"><a href="#不理解" class="headerlink" title="不理解"></a>不理解</h2><h2 id="核心目标是能不能从挖掘到这个漏洞的思路出发-现在看是不太能-待更新"><a href="#核心目标是能不能从挖掘到这个漏洞的思路出发-现在看是不太能-待更新" class="headerlink" title="(核心目标是能不能从挖掘到这个漏洞的思路出发,现在看是不太能,待更新)"></a>(核心目标是能不能从挖掘到这个漏洞的思路出发,现在看是不太能,待更新)</h2><p>为什么通过构造恶意payload即可达到命令执行效果? payload里面的参数都是负责做什么的? 他的漏洞原理是什么? 漏洞防御我该怎么做,官方是如何采取的布丁更新?如果你有同样的疑问,可以接着看这个文章.  </p>
 <h4 id="过程使用术语"><a href="#过程使用术语" class="headerlink" title="#过程使用术语"></a><em><strong>#过程使用术语</strong></em></h4><p>1、getter: java实例化出来的方法<br>2、setter: java实例化出来的方法<br>3、序列化: 将对象(class)转换为字节流(暂时理解为可视内容)<br>4、反序列化: 顾名思义,和反序列化是反过来的,将字节流重建对象(class)<br>5、<a target="_blank" rel="noopener" href="https://iowiki.com/java/java_constructors.html">构造函数</a>: Java中用来初始化对象</p>
-<h2 id="漏洞整体成因-FastJson库"><a href="#漏洞整体成因-FastJson库" class="headerlink" title="漏洞整体成因(FastJson库)"></a>漏洞整体成因(FastJson库)</h2><p>JSON.toJSONString()—用来进行序列化将类转换为字符串(序列化)<br>JSON.parseObject()&#x2F;JSON.parse()—用来将字符串转换为类(反序列化)<br>上边三个函数是问题的根本,万恶根源就是程序把不该执行的东西执行了,恰恰不该执行的东西是网友们构造出来的东西(payload)<br><img src="/.io//1.png"></p>
+<h2 id="漏洞整体成因-FastJson库"><a href="#漏洞整体成因-FastJson库" class="headerlink" title="漏洞整体成因(FastJson库)"></a>漏洞整体成因(FastJson库)</h2><p>JSON.toJSONString()—用来进行序列化将类转换为字符串(序列化)<br>JSON.parseObject()&#x2F;JSON.parse()—用来将字符串转换为类(反序列化)<br>上边三个函数是问题的根本,万恶根源就是程序把不该执行的东西执行了,恰恰不该执行的东西是网友们构造出来的东西(payload)<br><img src="/.io//_posts/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/1.png"></p>
 <hr>
 <h2 id="开始-了解Fastjson"><a href="#开始-了解Fastjson" class="headerlink" title="开始:了解Fastjson"></a>开始:了解Fastjson</h2><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><ul>
 <li>Java: 1.8.0_202  </li>
@@ -134,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clakfju1c0001dhhfdhk75jsv" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clakfku5k0000ewhf4v0o5kzy" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
       
       
       
