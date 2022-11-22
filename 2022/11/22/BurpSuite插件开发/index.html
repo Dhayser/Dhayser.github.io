@@ -6,13 +6,15 @@
   
   <title>BurpSuite插件开发 | Dhayser&#39;s space</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="环境准备 IDEA JDK BurpSuite,简称Burp  环境调试idea新建并启动一个gradle项目,因为开发过程需要使用Burp提供的接口,需要先配置一个依赖添加,implementation ‘net.portswigger.burp.extender:burp-extender-api:2.3’到文件build.gradle中,前两个可以暂时不用动. 12345dependenci">
+<meta property="og:type" content="article">
 <meta property="og:title" content="BurpSuite插件开发">
 <meta property="og:url" content="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/index.html">
 <meta property="og:site_name" content="Dhayser&#39;s space">
+<meta property="og:description" content="环境准备 IDEA JDK BurpSuite,简称Burp  环境调试idea新建并启动一个gradle项目,因为开发过程需要使用Burp提供的接口,需要先配置一个依赖添加,implementation ‘net.portswigger.burp.extender:burp-extender-api:2.3’到文件build.gradle中,前两个可以暂时不用动. 12345dependenci">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-22T04:46:38.000Z">
-<meta property="article:modified_time" content="2022-11-22T04:46:38.311Z">
+<meta property="article:modified_time" content="2022-11-22T05:00:47.656Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
   
@@ -93,11 +95,19 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li>IDEA</li>
+<li>JDK</li>
+<li>BurpSuite,简称Burp</li>
+</ol>
+<h2 id="环境调试"><a href="#环境调试" class="headerlink" title="环境调试"></a>环境调试</h2><p>idea新建并启动一个gradle项目,因为开发过程需要使用Burp提供的接口,需要先配置一个依赖添加,implementation ‘net.portswigger.burp.extender:burp-extender-api:2.3’到文件build.gradle中,前两个可以暂时不用动.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    testImplementation <span class="string">&#x27;org.junit.jupiter:junit-jupiter-api:5.8.1&#x27;</span></span><br><span class="line">    testRuntimeOnly <span class="string">&#x27;org.junit.jupiter:junit-jupiter-engine:5.8.1&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;net.portswigger.burp.extender:burp-extender-api:2.3&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编辑好后重启加载gradle即可.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clarqj0q30000puhfh3wranno" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clarr1uac0000u3hf9ftgfhb4" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
