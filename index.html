@@ -99,12 +99,12 @@
 <li>其他的蓝牙设备：无线蓝牙鼠标、无线蓝牙键盘、带蓝牙功能手机</li>
 </ol>
 <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>获取蓝牙数据包，我采用的是手机开启开发者模式，开启Bluetooth HCI snoop log，并使用adb bugreport turnonphoneandscan.zip，将日志保存到本地电脑读取btsnoop_hci.log文件。实际搜索过程中发现有一些文章通过&#x2F;sdcard目录也能直接导出btsnoop_hci.log文件，但是我的没成功，只能用比较麻烦的方式先能实现效果，优雅程度以后再说。</p>
-<h2 id="扫描，流量包分析"><a href="#扫描，流量包分析" class="headerlink" title="扫描，流量包分析"></a>扫描，流量包分析</h2><p>1、通过现象看本质<br>此处通过在手机上开启蓝牙，添加匹配新设备（扫描）的时候的数据包。在扫描的时候host会发给controller指令，开始会约定扫描的时间，让controller在12.8s之内去寻找蓝牙设备;<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/1.png"><br>扫描结束之后，controller看到时间了会给host发一个消息，通知时间到了结束扫描;<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/2.png"><br>随后controller会将扫描到的结果返回给host，这里看到的是。<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/3.png"></p>
+<h2 id="扫描，流量包分析"><a href="#扫描，流量包分析" class="headerlink" title="扫描，流量包分析"></a>扫描，流量包分析</h2><p>1、通过现象看本质<br>此处通过在手机上开启蓝牙，添加匹配新设备（扫描）的时候的数据包。在扫描的时候host会发给controller指令，开始会约定扫描的时间，让controller在12.8s之内去寻找蓝牙设备;<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/1.png"><br>扫描结束之后，controller看到时间了会给host发一个消息，通知时间到了结束扫描;<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/2.png"><br>随后controller会将扫描到的结果返回给host，这里看到的是RedMe Note 7 Pro。<br><img src="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/3.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clc0hj5fv000217hf9ui4794g" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clc0j6ass00030ahf6w82bi9i" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
       
       
       
@@ -156,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clc0hj5fx000517hfclqs0hhx" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clc0j6ass00060ahfhidg9tp5" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -197,7 +197,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clc0hj5fy000817hfedva7bdb" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clc0j6ast00070ahf23fb0bw3" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -236,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/28/74CMS%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" data-id="clc0hj5fs000017hfb35m74lr" data-title="74CMS分析总结" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/28/74CMS%E5%88%86%E6%9E%90%E6%80%BB%E7%BB%93/" data-id="clc0j6aso00000ahf99ap0hju" data-title="74CMS分析总结" class="article-share-link">Share</a>
       
       
       
@@ -294,7 +294,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clc0hj5fv000117hf6j0i2m9v" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clc0j6asq00010ahfanddc890" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -352,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" data-id="clc0hj5fy000a17hf1r8pbq5u" data-title="内网渗透经验记录" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8F%E7%BB%8F%E9%AA%8C%E8%AE%B0%E5%BD%95/" data-id="clc0j6ast00080ahf26et8dx2" data-title="内网渗透经验记录" class="article-share-link">Share</a>
       
       
       
@@ -398,7 +398,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clc0hj5fw000317hfbbn5g626" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clc0j6asr00020ahf37fy6xby" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -436,7 +436,7 @@
 <h1 id="学习心得-不知道的就多试一下-多敲几个代码累不死"><a href="#学习心得-不知道的就多试一下-多敲几个代码累不死" class="headerlink" title="学习心得: 不知道的就多试一下,多敲几个代码累不死"></a>学习心得: 不知道的就多试一下,多敲几个代码累不死</h1><h2 id="原由"><a href="#原由" class="headerlink" title="原由"></a>原由</h2><p>关于fastjson的文章网上有很多,漏洞环境搭建也有一键docker启动的,但是实际想了解这个漏洞的原理的时候并不能很好的将这个漏洞清晰的描述出来,记录学习过程并给网友们提供借鉴.</p>
 <h2 id="最初理解"><a href="#最初理解" class="headerlink" title="最初理解"></a>最初理解</h2><p>将使用fastjson的请求包更改为恶意的json格式的既可以执行命令执行漏洞.<br>json格式如下:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;age&quot;</span><span class="punctuation">:</span><span class="number">25</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;name&quot;</span><span class="punctuation">:</span><span class="string">&quot;Bob&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="不理解"><a href="#不理解" class="headerlink" title="不理解"></a>不理解</h2><h2 id="核心目标是能不能从挖掘到这个漏洞的思路出发-现在看是不太能-待更新"><a href="#核心目标是能不能从挖掘到这个漏洞的思路出发-现在看是不太能-待更新" class="headerlink" title="(核心目标是能不能从挖掘到这个漏洞的思路出发,现在看是不太能,待更新)"></a>(核心目标是能不能从挖掘到这个漏洞的思路出发,现在看是不太能,待更新)</h2><p>为什么通过构造恶意payload即可达到命令执行效果? payload里面的参数都是负责做什么的? 他的漏洞原理是什么? 漏洞防御我该怎么做,官方是如何采取的布丁更新?如果你有同样的疑问,可以接着看这个文章.  </p>
+<h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>为什么通过构造恶意payload即可达到命令执行效果? payload里面的参数都是负责做什么的? 他的漏洞原理是什么? 漏洞防御我该怎么做,官方是如何采取的布丁更新?如果你有同样的疑问,可以接着看这个文章.  </p>
 <h4 id="过程使用术语-x2F-知识"><a href="#过程使用术语-x2F-知识" class="headerlink" title="#过程使用术语&#x2F;知识"></a><em><strong>#过程使用术语&#x2F;知识</strong></em></h4><ol>
 <li>getter: java实例化出来的方法  </li>
 <li>setter: java实例化出来的方法  </li>
@@ -500,7 +500,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clc0hj5fw000417hfddtnf0ed" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clc0j6ass00040ahf8pqg8d2j" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
       
       
       
@@ -540,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clc0hj5fx000717hf0b0qbquw" data-title="非授权访问漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clc0j6asu00090ahfbkj1easu" data-title="非授权访问漏洞" class="article-share-link">Share</a>
       
       
       
@@ -581,7 +581,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clc0hj5fy000917hf07h1ce5w" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clc0j6asu000a0ahf6ujl1141" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
