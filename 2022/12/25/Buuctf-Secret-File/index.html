@@ -15,8 +15,9 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/2.png">
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png">
+<meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png">
 <meta property="article:published_time" content="2022-12-25T04:09:58.000Z">
-<meta property="article:modified_time" content="2022-12-25T23:46:40.102Z">
+<meta property="article:modified_time" content="2022-12-25T23:49:04.640Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/2.png">
@@ -105,12 +106,12 @@
 <li>require()</li>
 <li>require_once()</li>
 </ul>
-<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。</p>
+<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。<br>传flag.php文件，没拿到我们预期想要看的东西，返回继续看源代码吧。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png"><br>3、</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc40t1bw0005qohf3s87gcag" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc40v3y80003sdhf2dx101rj" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
