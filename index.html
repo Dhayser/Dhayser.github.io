@@ -100,12 +100,12 @@
 <li>require()</li>
 <li>require_once()</li>
 </ul>
-<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。<br>传flag.php文件，没拿到我们预期想要看的东西，返回继续看源代码吧。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png"><br>3、</p>
+<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。<br>传flag.php文件，没拿到我们预期想要看的东西，返回继续看源代码吧。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png"><br>3、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.stristr.php">stristr()</a>、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.include.php">include()</a>函数，分别用来判断参数内传入参数是否为stristr()里的值和用来文件包含读取include()内参数文件。那么我们就一个知道，我们的做题思路应该是先把收入的参数变量$file饶过if stristr()的判断，然后将$file传给include()进行文件包含查看—————</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc40v3y80003sdhf2dx101rj" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc41a8u50003uphf0db3d25b" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
@@ -152,7 +152,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clc40v3y90004sdhfhmyraphk" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clc41a8u60004uphf9d845r0z" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
       
       
       
@@ -199,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clc40v3y70001sdhfhisd2qcr" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clc41a8u30001uphfgskj4q5h" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
       
       
       
@@ -251,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clc40v3yb000bsdhf1d1i4el8" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clc41a8u8000buphfd0kyegu1" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -292,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clc40v3ya0008sdhfcaub8f9f" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clc41a8u70008uphfcvry3peb" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -350,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clc40v3y50000sdhfhrr0aarx" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clc41a8u10000uphf0l1j3625" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -408,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clc40v3ya0006sdhf9trjgaz9" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clc41a8u60006uphfb3f84sfb" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
       
       
       
@@ -454,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clc40v3y80002sdhf68rv5wd4" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clc41a8u40002uphf70t0d0ed" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -556,7 +556,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clc40v3y90005sdhf4pg4efxd" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clc41a8u60005uphfbhy6cu2a" data-title="Fastjson反序列化漏洞原理及检测利用" class="article-share-link">Share</a>
       
       
       
@@ -596,7 +596,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clc40v3yb000asdhfcl4uauxc" data-title="非授权访问漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clc41a8u7000auphf0z4z9fyf" data-title="非授权访问漏洞" class="article-share-link">Share</a>
       
       
       
