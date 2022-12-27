@@ -16,10 +16,9 @@
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/2.png">
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png">
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png">
-<meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/5.png">
 <meta property="og:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/6.png">
 <meta property="article:published_time" content="2022-12-25T04:09:58.000Z">
-<meta property="article:modified_time" content="2022-12-27T05:43:51.487Z">
+<meta property="article:modified_time" content="2022-12-27T07:23:40.341Z">
 <meta property="article:author" content="Dhayser Li">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/2.png">
@@ -108,12 +107,12 @@
 <li>require()</li>
 <li>require_once()</li>
 </ul>
-<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。<br>传flag.php文件，没拿到我们预期想要看的东西，返回继续看源代码吧。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png"><br>3、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.stristr.php">stristr()</a>、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.include.php">include()</a>函数，分别用来判断参数内传入参数是否为stristr()里的值和用来文件包含读取include()内参数文件。那么我们就一个知道，我们的做题思路应该是先把收入的参数变量$file饶过if stristr()的判断，然后将$file传给include()进行文件包含查看—————<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/5.png"><br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/6.png"><br>4、下一步我们就应该开始看如何进行饶过并且文件包含读取php文件了，php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;file.php，用来读取文件，可以把file.php替换成我们想要看的flag.php文件。<br>原理待补充。。。。。。。。。。。。。</p>
+<h3 id="解题："><a href="#解题：" class="headerlink" title="解题："></a>解题：</h3><p>1、查看前端源代码，发现有个Location跳转，然后发现了我们应该审计的PHP文件。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/3.png"><br>2、利用思路，那些参数我们可控制，我们可以修改并让系统执行，发现file参数符合我们上边的描述，我们可以手动传几个参数找一找感觉。<br>传flag.php文件，没拿到我们预期想要看的东西，返回继续看源代码吧。<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/4.png"><br>3、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.stristr.php">stristr()</a>、<a target="_blank" rel="noopener" href="https://www.php.net/manual/en/function.include.php">include()</a>函数，分别用来判断参数内传入参数是否为stristr()里的值和用来文件包含读取include()内参数文件。那么我们就一个知道，我们的做题思路应该是先把收入的参数变量$file饶过if stristr()的判断，然后将$file传给include()进行文件包含查看—————<br><img src="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/6.png" align="middle" width="50%" height="50%" ><br>4、下一步我们就应该开始看如何进行饶过并且文件包含读取php文件了，php:&#x2F;&#x2F;filter&#x2F;read&#x3D;convert.base64-encode&#x2F;resource&#x3D;file.php，用来读取文件，可以把file.php替换成我们想要看的flag.php文件。<br><code>http://8.8.8.8:81/secr3t.php?file=php://filter/read=convert.base64-encode/resource=flag.php</code><br>4.1、php:&#x2F;&#x2F; 协议</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc5sz9ap0003b5hf1r59aakm" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clc5wjik50002qrhf1jlq2opp" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
