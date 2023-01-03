@@ -100,15 +100,15 @@
 <h1 id="Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）"><a href="#Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）" class="headerlink" title="Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）"></a>Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Spring Cloud Gateway 是 Spring Cloud 下的一个项目，该项目是基于 Spring 5.0、Spring Boot 2.0 和 Project Reactor 等技术开发的网关，它旨在为微服务架构提供一种简单有效、统一的 API 路由管理方式。</p>
 <h2 id="版本-1"><a href="#版本-1" class="headerlink" title="版本"></a>版本</h2><p>Spring Cloud Gateway 3.1.x &lt; 3.1.1<br>Spring Cloud Gateway &lt; 3.0.7  </p>
 <h3 id="利用方式-1"><a href="#利用方式-1" class="headerlink" title="利用方式"></a>利用方式</h3><ul>
-<li>添加恶意路由</li>
-<li>刷新路由（此刻已经执行）</li>
+<li>添加恶意路由(头需要声明Content-Type: application&#x2F;json)</li>
+<li>刷新路由，使用浏览器访问url抓包改请求类型即可（此刻已经执行恶意代码）</li>
 <li>查看路由记录的回显</li>
 </ul>
 <img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/3.png" width="70%" height="70%" >  
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clcfv2d0p00067xhf6zst9avt" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clcfv4zmz0005aphf4v3d7ld8" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
       
       
       
@@ -155,7 +155,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clcfv2d0o00037xhf90fnhgr8" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clcfv4zmy0003aphf3yx4hmi0" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
@@ -202,7 +202,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clcfv2d0o00047xhf7iwf29wg" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clcfv4zmy0004aphf9njv2xhm" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
       
       
       
@@ -249,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clcfv2d0m00017xhfesn876rp" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clcfv4zmx0001aphf9ln52vpc" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
       
       
       
@@ -301,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clcfv2d0q000a7xhf95an2qtt" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clcfv4zn00009aphfgjvu345j" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -342,7 +342,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clcfv2d0p00097xhfhprgffu8" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clcfv4zn0000aaphffnsdfyhr" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -400,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clcfv2d0k00007xhf04rchhme" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clcfv4zmu0000aphf4i90dtnu" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -458,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clcfv2d0p00077xhfaxwr43lo" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clcfv4zmz0007aphfboc49plx" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
       
       
       
@@ -504,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clcfv2d0n00027xhf6jda5upf" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clcfv4zmy0002aphf3gvx5u9y" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -610,7 +610,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clcfv2d0o00057xhfags7fnkw" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clcfv4zmz0006aphfaml08x94" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
       
       
       
