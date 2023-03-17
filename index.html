@@ -71,6 +71,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-NetSarang产品线后门分析" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T01:15:10.000Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/">NetSarang产品线后门分析</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>遭受恶意植入后门的软件为2017年7月18日发布的产品，导致攻击者会利用该软件恶意监听用户主机</p>
+<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
+<li>花指令：<br>  程序开头就是PUSH EBP和MOV EBP,ESP这两句在大部分程序开头可以经常看到。  <table>
+<thead>
+<tr>
+<th align="center">语法含义</th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">push edx通用寄存器EDX压入堆栈</td>
+<td align="center">pop edx通用寄存器EDX弹出堆栈</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">inc ecx INC是加1</td>
+<td align="center">dec ecx DEC是减1</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">add esp,21 寄存器esp加21</td>
+<td align="center">add esp,-21 寄存器esp加－21</td>
+<td align="center">sub esp,10 寄存器esp减10</td>
+</tr>
+<tr>
+<td align="center">花指令一般有三部分，</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dhayser.github.io/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/" data-id="clfbvyy8n0005d0hf5b0ydo8l" data-title="NetSarang产品线后门分析" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Mysql数据库连接Public-Key-Retrieval-is-not-allowed" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/01/10/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5Public-Key-Retrieval-is-not-allowed/" class="article-date">
@@ -99,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2023/01/10/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5Public-Key-Retrieval-is-not-allowed/" data-id="clcpy5alr0007orhfgmzoa0gj" data-title="Mysql数据库连接Public Key Retrieval is not allowed" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2023/01/10/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5Public-Key-Retrieval-is-not-allowed/" data-id="clfbvyy8n0006d0hfgb0neerc" data-title="Mysql数据库连接Public Key Retrieval is not allowed" class="article-share-link">Share</a>
       
       
       
@@ -155,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clcpy5alr0006orhf7snx1j6o" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/" data-id="clfbvyy8o0009d0hf43lcgu9y" data-title="Spring Boot漏洞分析与利用" class="article-share-link">Share</a>
       
       
       
@@ -202,7 +273,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clcpy5alp0002orhfamjhhx9q" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/25/Buuctf-Secret-File/" data-id="clfbvyy8l0001d0hf5bi87cx0" data-title="Buuctf-Secret File" class="article-share-link">Share</a>
       
       
       
@@ -249,7 +320,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clcpy5alq0003orhf1age3rus" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/" data-id="clfbvyy8m0003d0hf9cfaccw3" data-title="CVE-2020-1472复现分析" class="article-share-link">Share</a>
       
       
       
@@ -296,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clcpy5alq0004orhf8n0y5pgu" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/" data-id="clfbvyy8i0000d0hf595091ct" data-title="Bluetooth抓包分析初识" class="article-share-link">Share</a>
       
       
       
@@ -348,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clcpy5als000aorhf2f002nwo" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/12/07/webpack%E5%89%8D%E7%AB%AF%E6%BA%90%E7%A0%81%E8%BF%98%E5%8E%9F%E6%BC%8F%E6%B4%9E/" data-id="clfbvyy8o000ad0hfaeoa24lz" data-title="webpack前端源码还原漏洞" class="article-share-link">Share</a>
       
       
       
@@ -389,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clcpy5als000borhfgouh8z4e" data-title="内存取证初识（一）" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/30/%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%88%9D%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/" data-id="clfbvyy8p000bd0hf3er6gxj3" data-title="内存取证初识（一）" class="article-share-link">Share</a>
       
       
       
@@ -447,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clcpy5alo0001orhf70gmann2" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="clfbvyy8n0004d0hf2s711ke3" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
       
       
       
@@ -505,53 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clcpy5alr0008orhf4w4t4ud6" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-BurpSuite插件开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="article-date">
-  <time class="dt-published" datetime="2022-11-22T04:46:38.000Z" itemprop="datePublished">2022-11-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">BurpSuite插件开发</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
-<li>IDEA</li>
-<li>JDK</li>
-<li>BurpSuite,简称Burp</li>
-</ol>
-<h2 id="环境调试"><a href="#环境调试" class="headerlink" title="环境调试"></a>环境调试</h2><p>idea新建并启动一个gradle项目,因为开发过程需要使用Burp提供的接口,需要先配置一个依赖添加,implementation ‘net.portswigger.burp.extender:burp-extender-api:2.3’到文件build.gradle中,前两个可以暂时不用动.</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    testImplementation <span class="string">&#x27;org.junit.jupiter:junit-jupiter-api:5.8.1&#x27;</span></span><br><span class="line">    testRuntimeOnly <span class="string">&#x27;org.junit.jupiter:junit-jupiter-engine:5.8.1&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;net.portswigger.burp.extender:burp-extender-api:2.3&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编辑好后重启加载gradle即可.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clcpy5alm0000orhfhtaffmfs" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="clfbvyy8o0008d0hfa68qb9od" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
       
       
       
@@ -586,7 +611,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
     </div>
   </div>
 
@@ -597,6 +622,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/">NetSarang产品线后门分析</a>
+          </li>
         
           <li>
             <a href="/2023/01/10/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5Public-Key-Retrieval-is-not-allowed/">Mysql数据库连接Public Key Retrieval is not allowed</a>
@@ -612,10 +641,6 @@
         
           <li>
             <a href="/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/">CVE-2020-1472复现分析</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/">Bluetooth抓包分析初识</a>
           </li>
         
       </ul>

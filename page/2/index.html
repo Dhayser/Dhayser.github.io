@@ -71,6 +71,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-BurpSuite插件开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="article-date">
+  <time class="dt-published" datetime="2022-11-22T04:46:38.000Z" itemprop="datePublished">2022-11-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/">BurpSuite插件开发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ol>
+<li>IDEA</li>
+<li>JDK</li>
+<li>BurpSuite,简称Burp</li>
+</ol>
+<h2 id="环境调试"><a href="#环境调试" class="headerlink" title="环境调试"></a>环境调试</h2><p>idea新建并启动一个gradle项目,因为开发过程需要使用Burp提供的接口,需要先配置一个依赖添加,implementation ‘net.portswigger.burp.extender:burp-extender-api:2.3’到文件build.gradle中,前两个可以暂时不用动.</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dependencies</span> &#123;</span><br><span class="line">    testImplementation <span class="string">&#x27;org.junit.jupiter:junit-jupiter-api:5.8.1&#x27;</span></span><br><span class="line">    testRuntimeOnly <span class="string">&#x27;org.junit.jupiter:junit-jupiter-engine:5.8.1&#x27;</span></span><br><span class="line">    implementation <span class="string">&#x27;net.portswigger.burp.extender:burp-extender-api:2.3&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编辑好后重启加载gradle即可.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clfbvyy8m0002d0hfar3qbi0p" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Fastjson反序列化漏洞原理及检测利用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" class="article-date">
@@ -165,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clcpy5alq0005orhf48f6350u" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clfbvyy8n0007d0hfh1aweyjq" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
       
       
       
@@ -205,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clcpy5alt000dorhfdejg99pg" data-title="非授权访问漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clfbvyy8q000ed0hf1zje43y7" data-title="非授权访问漏洞" class="article-share-link">Share</a>
       
       
       
@@ -246,7 +292,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clcpy5alt000corhf1qkb8pvt" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clfbvyy8p000dd0hfe0tv1y7d" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
@@ -294,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clcpy5als0009orhfctbbbu4b" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clfbvyy8p000cd0hfbxb78lpp" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
@@ -329,7 +375,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
     </div>
   </div>
 
@@ -340,6 +386,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/">NetSarang产品线后门分析</a>
+          </li>
         
           <li>
             <a href="/2023/01/10/Mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5Public-Key-Retrieval-is-not-allowed/">Mysql数据库连接Public Key Retrieval is not allowed</a>
@@ -355,10 +405,6 @@
         
           <li>
             <a href="/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/">CVE-2020-1472复现分析</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/23/Bluetooth%E6%8A%93%E5%8C%85%E5%88%86%E6%9E%90%E5%88%9D%E8%AF%86/">Bluetooth抓包分析初识</a>
           </li>
         
       </ul>
